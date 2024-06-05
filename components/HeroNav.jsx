@@ -29,11 +29,11 @@ export const HeroNav = () => {
         {/* Sub-Navigation */}
         <div className="p-4 rounded-lg w-full relative">
             <div className="flex justify-center space-x-4 mb-4">
-                {products.reverse().slice(0,6).map((product, indx) => (
-                    <div key={indx} className='flex'>
-                        <Image src={product.image} alt={product.name} width={50} height={50} className="  object-cover rounded shadow-md shadow-zinc-500 cursor-pointer hover:shadow-zinc-700"/>
+                {products.slice(0,6).map((product, indx) => (
+                  <div key={indx} className='flex'>
+                      <Image src={product.image} alt={product.name} width={50} height={50} className="  object-cover rounded shadow-md shadow-zinc-500 cursor-pointer hover:shadow-zinc-700"/>
 
-                    </div>
+                  </div>
                 ))}
             
             </div>
