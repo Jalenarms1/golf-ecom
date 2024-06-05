@@ -31,7 +31,7 @@ export const HeroNav = () => {
             <div className="flex justify-center space-x-4 mb-4">
                 {products.slice(0,6).map((product, indx) => (
                   <div key={indx} className='flex'>
-                      <Image src={product.image} alt={product.name} width={50} height={50} className="  object-cover rounded shadow-md shadow-zinc-500 cursor-pointer hover:shadow-zinc-700"/>
+                      <Image src={product.image} alt={product.name} width={50} height={50} className="h-14  object-cover rounded shadow-md shadow-zinc-500 cursor-pointer hover:shadow-zinc-700"/>
 
                   </div>
                 ))}
