@@ -6,7 +6,7 @@ import { products } from "@/data/products";
 const Catalog = () => {
     return (
         <section id="catalog" className="py-12">
-            <div className="container mx-auto">
+            <div className=" px-10 mx-auto">
                 <h2 className="text-3xl font-bold text-center mb-8">Shop Our Collection</h2>
                 <div className="grid grid-cols-1  sm:grid-cols-2 md:grid-cols-4 gap-8 ">
                 {products.reverse().slice(0,4).map(product => (

@@ -14,14 +14,14 @@ const Navbar = () => {
   const[currPath, setCurrPath] = useState('Home')
 
   useEffect(() => {
-    setCurrPath(pathname == '/' ? 'Home' : pathname)
+    setCurrPath(pathname)
   }, [pathname])
 
   console.log(currPath);
 
   return (
     <nav className="w-full relative py-2 sm:p-4">
-      <div className="container  flex justify-between items-center">
+      <div className="px-2  flex justify-between items-center">
         <div className="flex items-center gap-4">
           <div className="flex items-center">
             <LandPlot className="text-green-600 text-3xl mr-2" />
@@ -33,17 +33,25 @@ const Navbar = () => {
         <div className="flex sm:hidden">
           <Menu />
         </div>
-        <div className=" gap-6 items-center hidden sm:flex">
-          <NavItem text={'Home'} path={currPath} />
-          <NavItem text={'Shop'} path={currPath} />
-          <NavItem text={'Orders'} path={currPath} />
-          <NavItem text={'Contact'} path={currPath} />
+        <div className=" gap-4 items-center hidden sm:flex bg-black rounded-md p-2">
+          <NavItem text={'Home'} path={currPath} active={currPath == '/'} />
+          <div className='border border-white'></div>
+
+          <NavItem text={'Shop'} path={currPath} active={currPath == '/shop'} />
+          <div className='border border-white'></div>
+
+          <NavItem text={'Orders'} path={currPath} active={currPath == '/orders'} />
+          <div className='border border-white'></div>
+
+          <NavItem text={'Contact'} path={currPath} active={currPath == '/contact'} />
+
           
 
         </div>
-        <div className=" space-x-4 hidden sm:flex">
-          <SquareUser className='text-white cursor-pointer' />
-          <ShoppingCart className='text-white cursor-pointer' />
+        <div className="gap-2 hidden sm:flex bg-black rounded-md p-2">
+          <SquareUser className='text-white cursor-pointer text-2xl' />
+          <div className='border border-white'></div>
+          <ShoppingCart className='text-white cursor-pointer text-2xl' />
         </div>
       </div>
     </nav>
