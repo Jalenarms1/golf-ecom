@@ -1,8 +1,7 @@
 @tailwind base;
 @tailwind components;
-  @tailwind utilities;
-
-
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Quicksand:wght@300..700&display=swap');
 * {
   -ms-overflow-style: none;
 }
@@ -10,6 +9,28 @@
 ::-webkit-scrollbar {
   display: none;
   width: 5px;
+}
+
+.merri-font {
+  font-family: "Merriweather", serif;
+}
+.qs-font {
+  font-family: "Quicksand", sans-serif;
+}
+
+#sliding-nav {
+  position: fixed; /* Fixed position to stay in view */
+  height: 100vh; /* Full viewport height */
+  top: 0;
+  right: 0;
+  width: 225px; /* Adjust the width as needed */
+  transform: translateX(100%); /* Start hidden off-screen */
+  transition: transform 0.3s ease; /* Smooth sliding transition */
+  z-index: 1000; /* Ensure it is above other content */
+}
+
+#sliding-nav.active {
+  transform: translateX(0); /* Slide in */
 }
 
 ::-webkit-scrollbar-track {
