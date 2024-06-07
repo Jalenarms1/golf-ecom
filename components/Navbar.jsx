@@ -27,7 +27,7 @@ const Navbar = () => {
 
   return (
     <nav className="w-full relative py-2 sm:p-4">
-      <div className="px-2  flex justify-between items-center">
+      <div className="p-2  flex justify-between items-center">
         <div className="flex items-center gap-4">
           <div className="flex items-center">
             <LandPlot className="text-green-600 text-4xl mr-2" />
@@ -37,7 +37,7 @@ const Navbar = () => {
           
         </div>
         <div className="flex sm:hidden">
-          <Menu onClick={toggleSidebar} className='text-white cursor-pointer active:text-zinc-400' />
+          <Menu onClick={toggleSidebar} className='text-white cursor-pointer active:text-zinc-400 scale-[1.15]' />
         </div>
         <div className=" gap-4 items-center hidden sm:flex bg-black rounded-md p-2">
           <NavItem text={'Home'} path={currPath} active={currPath == '/'} />
@@ -62,7 +62,7 @@ const Navbar = () => {
       </div>
       <div id='sliding-nav' className={`bg-zinc-300 p-3 shadow-md shadow-zinc-900 border-l border-zinc-900 absolute right-0 z-[1] ${sidebarOpen ? 'active' : ''}`}>
         <div className='flex '>
-        <ListCollapse onClick={toggleSidebar} className='text-black active:text-zinc-600 cursor-pointer' />
+        <ListCollapse onClick={toggleSidebar} className='text-black active:text-zinc-600 cursor-pointer scale-[1.15]' />
         </div>
       </div>
     </nav>
