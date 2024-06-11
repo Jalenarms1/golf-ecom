@@ -1,13 +1,33 @@
+'use client'
 import { ListCollapse } from 'lucide-react'
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import { NavItem } from './NavItem'
 import { SquareUser } from 'lucide-react'
+import { useSidebarContext } from '@/contexts/SidebarContext'
 
-export const Sidebar = ({onClick, currPath}) => {
+export const Sidebar = ({currPath}) => {
+
+    const {toggleSidebar} = useSidebarContext()
+    const sidebarRef = useRef();
+    
+
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+          if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
+            toggleSidebar(false);
+          }
+        };
+    
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+          document.removeEventListener('mousedown', handleClickOutside);
+        };
+      }, [toggleSidebar]);
+
   return (
-    <div className='flex flex-col'>
+    <div ref={sidebarRef} className='flex flex-col'>
         <div className="flex justify-between">
-            <ListCollapse onClick={onClick} className='text-black active:text-zinc-600 cursor-pointer scale-[1.15]' />
+            <ListCollapse onClick={() => toggleSidebar()} className='text-black active:text-zinc-600 cursor-pointer scale-[1.15]' />
             <SquareUser className='text-black cursor-pointer text-2xl' />
             
         </div>

@@ -9,16 +9,18 @@ import { NavItem } from './NavItem';
 import { Menu } from 'lucide-react';
 import { ListCollapse } from 'lucide-react';
 import { Sidebar } from './Sidebar';
+import { useSidebarContext } from '@/contexts/SidebarContext';
 
 const Navbar = () => {
   const pathname = usePathname()
 
   const[currPath, setCurrPath] = useState('Home')
-  const [sidebarOpen, setSidebarOpen] = useState(false)
+  const {toggleSidebar, sidebarOpen} = useSidebarContext()
+  // const [sidebarOpen, setSidebarOpen] = useState(false)
 
-  const toggleSidebar = () => {
-    setSidebarOpen(!sidebarOpen)
-  }
+  // const toggleSidebar = () => {
+  //   setSidebarOpen(!sidebarOpen)
+  // }
 
   useEffect(() => {
     setCurrPath(pathname)
