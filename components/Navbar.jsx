@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
 import { NavItem } from './NavItem';
 import { Menu } from 'lucide-react';
 import { ListCollapse } from 'lucide-react';
+import { Sidebar } from './Sidebar';
 
 const Navbar = () => {
   const pathname = usePathname()
@@ -37,7 +38,7 @@ const Navbar = () => {
           
         </div>
         <div className="flex sm:hidden">
-          <Menu onClick={toggleSidebar} className='text-white cursor-pointer active:text-zinc-400 scale-[1.15]' />
+          <Menu onClick={toggleSidebar} className='text-white bg-zinc-800 rounded-md p-1 cursor-pointer active:text-zinc-400 scale-[1.15]' />
         </div>
         <div className=" gap-4 items-center hidden sm:flex bg-black rounded-md p-2">
           <NavItem text={'Home'} path={currPath} active={currPath == '/'} />
@@ -61,9 +62,7 @@ const Navbar = () => {
         </div>
       </div>
       <div id='sliding-nav' className={`bg-zinc-300 p-3 shadow-md shadow-zinc-900 border-l border-zinc-900 absolute right-0 z-[1] ${sidebarOpen ? 'active' : ''}`}>
-        <div className='flex '>
-        <ListCollapse onClick={toggleSidebar} className='text-black active:text-zinc-600 cursor-pointer scale-[1.15]' />
-        </div>
+        <Sidebar currPath={currPath} onClick={toggleSidebar} />
       </div>
     </nav>
   );

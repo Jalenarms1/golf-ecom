@@ -6,9 +6,12 @@ import { ScreenWrapper } from "@/components/ScreenWrapper";
 import Image from "next/image";
 
 export default function Home() {
+
+
+
   return (
     <div className="">
-      <ScreenWrapper>
+      <ScreenWrapper >
         {/* <Navbar /> */}
         <HeroNav />
         <Catalog />
